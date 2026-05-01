@@ -124,7 +124,7 @@
     
     async function loadPeta() {
         try {
-            const responseAttr = await fetch('https://script.google.com/macros/s/AKfycbzECW2GYPzz2Qu-Vo0AJDWqd1OlnwG6AUUvd1vqNPs5xJM59vPj54-iAQ-j-nt39ios/exec');
+            const responseAttr = await fetch('https://script.google.com/macros/s/AKfycbxaPU4XCEc6kyyaEw7-UFjHh00y5aF_KAIYaieZ1luf55Ab1Mx0NnUIfdV9zblFljCR/exec');
             const dataAtribut = await responseAttr.json();
             const responseGeo = await fetch('shp_Lahan_Agro.geojson'); 
             const dataGeo = await responseGeo.json();
