@@ -173,9 +173,9 @@
                             <hr>
                             <b>Status: TERPAKAI (Terverifikasi)</b><br>
                             Nama: ${match['Nama']}<br>
-                            Nim: ${match.NIM}<br>
+                            Nim: ${match.['Nomor Identitas']}<br>
                             Judul: ${match['Judul Penelitian']}<br>
-                            Dosen: ${match['Dosen Pembimbing]}<br>
+                            Dosen: ${match['Dosen Pembimbing']}<br>
                             Selesai: ${tglSelesai.toLocaleDateString('id-ID')}`;
                     } else if (match && isAktif && !isVerified){
                         // kondisi 2 : baru isi form, belum verifikasi
