@@ -144,11 +144,11 @@
                                         
                     const semuaMatch = dataAtribut.filter(item => {
                         // Pastikan sel Kode_Lahan di Sheets tidak kosong
-                        if (!item.Kode_Lahan) return false;
+                        if (!item['Kode petak lahan/GH']) return false;
                         if (item.Keterangan && item.Keterangan.toLowerCase() === "ditolak") return false;
     
                         // Pecah teks berdasarkan koma, lalu bersihkan spasi di kiri-kanannya
-                        const listLahan = item.Kode_Lahan.toString().split(',').map(l => l.trim());
+                        const listLahan = item['Kode petak lahan/GH'].toString().split(',').map(l => l.trim());
     
                         // Cek apakah nama lahan di peta ada di dalam daftar listLahan dari Sheets
                         return listLahan.includes(feature.properties.Nama_Lahan);
@@ -156,14 +156,14 @@
 
                     // Prioritas: terverifikasi aktif dul, baru pending aktif
                     let match = semuaMatch.find(item => {
-                        const tgl = buatObjekTanggal(item.Selesai_Penelitian);
+                        const tgl = buatObjekTanggal(item['Selesai peminjaman']);
                         if (!tgl || tgl <= waktuSekarang) return false;
                         const ket = item.Keterangan ? item.Keterangan.toLowerCase() : "";
                         return ket === "terverifikasi" || ket === "terverisikasi";
                     });
                     if (!match) {
                         match = semuaMatch.find(item => {
-                            const tgl = buatObjekTanggal(item.Selesai_Penelitian);
+                            const tgl = buatObjekTanggal(item['Selesai peminjaman']);
                             return tgl && tgl > waktuSekarang;
                         });
                     }
