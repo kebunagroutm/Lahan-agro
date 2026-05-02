@@ -188,6 +188,7 @@
                             Nim: ${match['Nomor Identitas']}<br>
                             Judul: ${match['Judul Penelitian']}<br>
                             Dosen: ${match['Dosen Pembimbing']}<br>
+                            Mulai: ${buatObjekTanggal (match['Mulai peminjaman'])?.toLocaleDateString('id-ID') || '-'}<br>
                             Selesai: ${tglSelesai.toLocaleDateString('id-ID')}`;
                     } else if (match && isAktif && !isVerified){
                         // kondisi 2 : baru isi form, belum verifikasi
